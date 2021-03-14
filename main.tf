@@ -76,6 +76,28 @@ resource "aws_default_security_group" "default-sg" {
   }
 }
 
+data "aws_ami" "latest-amazon-linux-image" {
+  most_recent = true
+  owners = ["amazon"]
+  filter {
+    name = "name"
+    values = [ "amzn2-ami-hvm-*-x86_64-gp2" ]
+  }
+  filter {
+    name = "virtualization-type"
+    values = [ "hvm" ]
+  }
+}
+
+output "aws_ami" {
+  value = data.aws_ami.latest-amazon-linux-image
+}
+
+# resource "aws_instance" "myapp-server" {
+#   ami = data.aws_ami.latest-amazon-linux-image.id
+# }
+
+
 # resource "aws_route_table" "myapp-route-table" {
 #   vpc_id = aws_vpc.myapp-vpc.id
 # 
