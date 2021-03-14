@@ -76,7 +76,6 @@ resource "aws_default_security_group" "default-sg" {
   }
 }
 
-
 # resource "aws_route_table" "myapp-route-table" {
 #   vpc_id = aws_vpc.myapp-vpc.id
 # 
