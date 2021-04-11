@@ -47,3 +47,9 @@ terraform destroy
 terraform destroy -auto-approve
 ```
 
+### State
+
+pull tf state from s3
+```bash
+terraform state pull
+```
